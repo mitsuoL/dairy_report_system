@@ -89,7 +89,7 @@ public class Employee {
     /**
      * 削除された従業員かどうか(現役；0、削除済み：１）
      */
-    @Column(name=JpaConst.EMP_COL_ADMIN_FLAG,nullable=false)
+    @Column(name=JpaConst.EMP_COL_DELETE_FLAG,nullable=false)
     private Integer deleteFlag;
 
 }
