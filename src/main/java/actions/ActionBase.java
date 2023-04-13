@@ -15,6 +15,10 @@ import constants.AttributeConst;
 import constants.ForwardConst;
 import constants.PropertyConst;
 
+/**
+ * 各Actionクラスの親クラス。共通処理を行う。
+ *
+ */
 public abstract class ActionBase {
     protected ServletContext context;
     protected HttpServletRequest request;
@@ -236,4 +240,5 @@ public abstract class ActionBase {
     protected <R> R getContextScope(PropertyConst key) {
         return (R) context.getAttribute(key.getValue());
     }
+
 }

@@ -89,6 +89,8 @@ li{
   table#employee_list th{
     width: 30%;
     padding:10px 2%;
+    writing-mode: horizontal-tb;
+    text-orientation: sideways;
   }
 
   table#employee_list td{

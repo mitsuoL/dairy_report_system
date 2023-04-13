@@ -12,16 +12,19 @@ import models.Employee;
 import models.validators.EmployeeValidator;
 import utils.EncryptUtil;
 
+/**
+ * 従業員テーブルの操作に関わる処理を行うクラス
+ */
 public class EmployeeService extends ServiceBase {
 
     /**
      * 指定されたページ数の一覧画面に表示するデータを取得し、EmployeeViewのリストで返却する
-     * @param page終え￥￥ページ数
+     * @param page ページ数
      * @return 表示するデータのリスト
      */
-    public List<EmployeeView> getPerPage(int page){
-        List<Employee> employees = em.createNamedQuery(JpaConst.Q_EMP_GET_ALL,Employee.class)
-                .setFirstResult(JpaConst.ROW_PER_PAGE * (page -1))
+    public List<EmployeeView> getPerPage(int page) {
+        List<Employee> employees = em.createNamedQuery(JpaConst.Q_EMP_GET_ALL, Employee.class)
+                .setFirstResult(JpaConst.ROW_PER_PAGE * (page - 1))
                 .setMaxResults(JpaConst.ROW_PER_PAGE)
                 .getResultList();
 
@@ -29,15 +32,14 @@ public class EmployeeService extends ServiceBase {
     }
 
     /**
-     * 従業員テーブルのデータを件数を取得し、返却する
-     * @return 従業員テーブルのデータを件数
+     * 従業員テーブルのデータの件数を取得し、返却する
+     * @return 従業員テーブルのデータの件数
      */
     public long countAll() {
-        long empCount = (long)em.createNamedQuery(JpaConst.Q_EMP_COUNT, Long.class)
+        long empCount = (long) em.createNamedQuery(JpaConst.Q_EMP_COUNT, Long.class)
                 .getSingleResult();
 
         return empCount;
-
     }
 
     /**
@@ -252,6 +254,5 @@ public class EmployeeService extends ServiceBase {
         em.getTransaction().commit();
 
     }
-
 
 }
