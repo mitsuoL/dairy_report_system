@@ -94,7 +94,7 @@ li{
   }
 
   table#employee_list td{
-    width: 29%;
+    width: 100px;
     padding: 10px 2%;
   }
 
